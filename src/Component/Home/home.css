@@ -1,0 +1,31 @@
+.home{
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap ;
+    gap: 20px;
+    cursor: pointer;
+}
+
+.imageData{
+    display: flex;
+}
+
+
+
+.svg{
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+.dataflex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.text_variety{
+    margin-left: 5%;
+    font-weight: 700;
+    font-size: 20px;
+}

@@ -1,0 +1,51 @@
+.ParentDiv{
+    border: 2px solid rgb(228, 212, 212);
+    width: 250px;
+    padding: 10px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+img{
+    height: 168px;
+}
+
+.stock{
+    color: red;
+    font-weight: 500;
+}
+
+
+.description{
+    font-weight: 700;
+}
+
+.offer{
+    display: flex;
+    gap: 10px;
+}
+
+.price{
+    text-decoration: line-through;
+    color: rgb(249, 204, 204);
+}
+
+.off{
+    background-color: rgb(245, 118, 118);
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+}
+
+.rs{
+    font-weight: 600;
+}
