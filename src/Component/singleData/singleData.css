@@ -66,6 +66,8 @@
     border: 2px solid red;
     width: 50px;
     text-align: center;
+    border-radius: 4px;
+
 }
 
 .gb32{
@@ -120,8 +122,20 @@ input{
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    border-radius: 4px;
 }
 
 .pvalue{
     font-size: 10px;
+}
+
+.othervar{
+    display: flex;
+    gap: 10px;
+}
+
+.parentsingledata{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }

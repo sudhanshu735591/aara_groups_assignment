@@ -10,6 +10,11 @@ function SingleData(){
 
     const [varientData, setVarientData] = useState();
 
+    const [borderColor, setBorderColor] = useState();
+
+    const [myindex, setIndex] = useState();
+
+    const [colorIndex, setColorIndex] = useState();
 
     const apiFetch = async()=>{
         
@@ -42,9 +47,24 @@ function SingleData(){
     },[])
 
 
-    function handleImageClick(variant_image){
+    function handleImageClick(variant_image, index){
         setImageClick(variant_image);
+        setColorIndex(index)
+
     }
+
+
+    function handleIndex(index){
+        console.log("index", index);
+        setBorderColor(index)
+    }
+
+    function handleIndexData(index){
+        setIndex(index)
+    }
+
+
+   
 
     return(
         <div className="singleData">
@@ -52,7 +72,7 @@ function SingleData(){
                 <img className="singleImage" src={imageClick? imageClick:data?.variant_image} alt="Loading Image.." />
             </div>
 
-            <div>
+            <div className="parentsingledata">
                 <p className="singleDesc">{data?.product_variant_name}</p>
                 <p className="stockText">{data?.stock_sataus}</p>
                 <div className="textmrp">
@@ -66,9 +86,9 @@ function SingleData(){
                 <div className="multiimage">
                     <div className="imageVarient">
                        {
-                        varientData ? varientData.map((val)=>{
+                        varientData ? varientData.map((val, index)=>{
                             return(
-                                <div onClick={()=>handleImageClick(val.variant_image)} className="borderVarient">
+                                <div style={{borderColor:colorIndex===index ?"orange":"rgb(142, 139, 135)"}}  onClick={()=>handleImageClick(val.variant_image, index)} className="borderVarient">
                                     <img  className="varientImage" src={val.variant_image} alt="" />
                                     <p className="pvalue">{val?.value}</p>
                                 </div>
@@ -81,14 +101,28 @@ function SingleData(){
 
                 <p className="color">RAM</p>
 
-                <div className="gb8">8 GB</div>
+
+                <div className="othervar">
+                    {data && data.other_variant_values.map((val, index)=>{
+                        return(
+                            <div style={{borderColor:borderColor===index ?"orange":"rgb(142, 139, 135)"}} onClick={()=>handleIndex(index)} className="gb8">{val?.value}</div>
+                        )
+                    })}
+                </div>
 
 
                 <p className="color">Storage</p>
 
                 <div className="storage">
-                    <div className="gb8">8 GB</div>
-                    <div className="gb32">{data?.storage_variant_name}</div>
+                    {
+                        data && data.variant_storage_values.map((val, index)=>{
+                            return(
+                                <div style={{borderColor:myindex===index?"orange":"rgb(142, 139, 135)"}} onClick={()=>handleIndexData(index)} className="gb32">
+                                    {val.value}
+                                </div>
+                            )
+                        })
+                    }
                 </div>
 
 
